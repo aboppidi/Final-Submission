@@ -1,0 +1,32 @@
+package vendingMachine;
+
+
+import factory.Coke;
+import factory.Pepsi;
+import org.junit.Test;
+
+
+import static org.junit.Assert.assertEquals;
+
+
+public class CartTest {
+
+    @Test
+    public void testAddCart(){
+        Cart cart = new Cart();
+        cart.addItem(new Pepsi());
+        cart.addItem(new Coke());
+        assertEquals(2, cart.getNumOfItemsInCart());
+        assertEquals(4.60, cart.getNumOfItemsInCart());
+    }
+    @Test
+    public void testEmptyCart(){
+        Cart cart = new Cart();
+        cart.addItem(new Pepsi());
+        cart.empty();
+        assertEquals(0, cart.getNumOfItemsInCart());
+        assertEquals(0.0, cart.getTotalPriceOfCart());
+
+    }
+
+}
